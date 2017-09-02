@@ -5,6 +5,7 @@ import android.view.View;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
 
+import agency.tango.materialintroscreen.MaterialIntroActivity;
 import agency.tango.materialintroscreen.MessageButtonBehaviour;
 import agency.tango.materialintroscreen.R;
 import agency.tango.materialintroscreen.SlideFragment;
@@ -29,7 +30,7 @@ public class MessageButtonBehaviourOnPageSelected implements IPageSelectedListen
 
         if (slideFragment.hasAnyPermissionsToGrant()) {
             showMessageButton(slideFragment);
-            messageButton.setText(slideFragment.getActivity().getString(R.string.grant_permissions));
+            messageButton.setText(((MaterialIntroActivity ) slideFragment.getActivity()).getGrantPermissionText());
             messageButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
