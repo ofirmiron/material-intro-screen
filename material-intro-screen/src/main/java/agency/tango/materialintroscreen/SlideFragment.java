@@ -5,6 +5,8 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
+import android.text.Html;
+import android.text.method.LinkMovementMethod;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -113,7 +115,8 @@ public class SlideFragment extends ParallaxFragment {
 
     private void updateViewWithValues() {
         titleTextView.setText(title);
-        descriptionTextView.setText(description);
+        descriptionTextView.setText(Html.fromHtml(description));
+        descriptionTextView.setMovementMethod(LinkMovementMethod.getInstance());
 
         if (image != 0) {
             imageView.setImageDrawable(ContextCompat.getDrawable(getActivity(), image));
