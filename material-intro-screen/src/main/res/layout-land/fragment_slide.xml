@@ -13,6 +13,8 @@
     android:orientation="horizontal">
 
     <ImageView
+        android:layout_marginLeft="32dp"
+        android:layout_marginStart="32dp"
         android:id="@+id/image_slide"
         android:layout_width="250dp"
         android:layout_height="250dp"
@@ -46,7 +48,8 @@
             android:gravity="start"
             android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
             app:layout_parallaxFactor="0.2"
-            tools:text="Message" />
+            android:maxWidth="300dp"
+            tools:text="This is a test of a very long message, which should be split into multiple lines." />
 
     </LinearLayout>
 
