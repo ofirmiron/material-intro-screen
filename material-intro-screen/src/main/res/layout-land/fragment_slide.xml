@@ -16,8 +16,8 @@
         android:layout_marginLeft="32dp"
         android:layout_marginStart="32dp"
         android:id="@+id/image_slide"
-        android:layout_width="250dp"
-        android:layout_height="250dp"
+        android:layout_width="240dp"
+        android:layout_height="240dp"
         android:layout_gravity="center"
         android:adjustViewBounds="true"
         android:scaleType="fitCenter"
@@ -44,11 +44,11 @@
             android:id="@+id/txt_description_slide"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
+            android:layout_marginTop="8dp"
             android:gravity="start"
             android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
             app:layout_parallaxFactor="0.2"
-            android:maxWidth="300dp"
+            android:maxWidth="320dp"
             tools:text="This is a test of a very long message, which should be split into multiple lines." />
 
     </LinearLayout>
