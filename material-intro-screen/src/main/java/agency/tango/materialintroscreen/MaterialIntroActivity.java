@@ -184,6 +184,14 @@ public abstract class MaterialIntroActivity extends AppCompatActivity {
         return getString(grantPermission);
     }
 
+    public int getCurrentSlide() {
+        if (viewPager != null) {
+            return viewPager.getCurrentItem();
+        } else {
+            return 0;
+        }
+    }
+
     /**
      * Add SlideFragment to IntroScreen
      *
