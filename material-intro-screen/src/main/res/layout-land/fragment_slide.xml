@@ -47,6 +47,8 @@
             android:layout_marginTop="8dp"
             android:gravity="start"
             android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
+            android:textColorHighlight="@android:color/white"
+            android:textColorLink="@android:color/white"
             app:layout_parallaxFactor="0.2"
             android:maxWidth="320dp"
             tools:text="This is a test of a very long message, which should be split into multiple lines." />

@@ -44,6 +44,8 @@
         android:layout_marginTop="8dp"
         android:gravity="center"
         android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
+        android:textColorHighlight="@android:color/white"
+        android:textColorLink="@android:color/white"
         app:layout_parallaxFactor="0.2"
         tools:text="Message" />
 
