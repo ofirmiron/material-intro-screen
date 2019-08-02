@@ -2,6 +2,7 @@ package agency.tango.materialintroscreen;
 
 import android.animation.ArgbEvaluator;
 import android.content.res.ColorStateList;
+import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.ColorRes;
@@ -79,6 +80,9 @@ public abstract class MaterialIntroActivity extends AppCompatActivity {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
             Window window = getWindow();
             window.setFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS, WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                getWindow().setStatusBarColor(Color.TRANSPARENT);
+            }
         }
 
         setContentView(R.layout.activity_material_intro);
@@ -470,11 +474,7 @@ public abstract class MaterialIntroActivity extends AppCompatActivity {
             messageButton.setTextColor(backgroundColor);
 
             int buttonsColor = getButtonsColor(position, offset);
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                getWindow().setStatusBarColor(buttonsColor);
-            }
             pageIndicator.setPageIndicatorColor(buttonsColor);
-
             tintButtons(ColorStateList.valueOf(buttonsColor));
         }
 
