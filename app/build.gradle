@@ -4,11 +4,10 @@ apply from: "$rootDir/versions.gradle"
 
 android {
     compileSdkVersion 25
-    buildToolsVersion "25.0.3"
     defaultConfig {
         applicationId "agency.tango.materialintro"
         minSdkVersion 15
-        targetSdkVersion 25
+        targetSdkVersion 26
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
@@ -22,11 +21,11 @@ android {
 }
 
 dependencies {
-    compile fileTree(include: ['*.jar'], dir: 'libs')
-    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    androidTestImplementation('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
-    compile "com.android.support:appcompat-v7:${project.androidSupport}"
-    testCompile 'junit:junit:4.12'
-    compile project(path: ':material-intro-screen')
+    implementation "com.android.support:appcompat-v7:${project.androidSupport}"
+    testImplementation 'junit:junit:4.12'
+    implementation project(path: ':material-intro-screen')
 }
