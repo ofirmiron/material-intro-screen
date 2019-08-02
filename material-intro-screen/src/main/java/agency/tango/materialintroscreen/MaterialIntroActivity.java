@@ -84,6 +84,7 @@ public abstract class MaterialIntroActivity extends AppCompatActivity {
                 getWindow().setStatusBarColor(Color.TRANSPARENT);
             }
         }
+        maybeMakeActivityTransparent();
 
         setContentView(R.layout.activity_material_intro);
 
@@ -495,5 +496,39 @@ public abstract class MaterialIntroActivity extends AppCompatActivity {
                 performFinish();
             }
         }
+    }
+
+    private void maybeMakeActivityTransparent() {
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.Q) {
+            return;
+        }
+
+        Window window = getWindow();
+
+        // Make activity draw edge-to-edge.
+        window.getDecorView().setSystemUiVisibility(
+                View.SYSTEM_UI_FLAG_LAYOUT_STABLE
+                        | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
+                        | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
+        );
+
+        // Make navigation and status bar transparent.
+        setWindowFlag(window,
+                WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS
+                        | WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION, false);
+        window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION);
+        window.setNavigationBarColor(Color.TRANSPARENT);
+        window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+        window.setStatusBarColor(Color.TRANSPARENT);
+    }
+
+    private static void setWindowFlag(Window window, int bits, boolean on) {
+        WindowManager.LayoutParams winParams = window.getAttributes();
+        if (on) {
+            winParams.flags |= bits;
+        } else {
+            winParams.flags &= ~bits;
+        }
+        window.setAttributes(winParams);
     }
 }
