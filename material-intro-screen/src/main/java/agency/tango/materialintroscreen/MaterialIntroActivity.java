@@ -262,8 +262,15 @@ public abstract class MaterialIntroActivity extends AppCompatActivity {
      */
     @SuppressWarnings("unused")
     public void hideBackButton() {
-        backButton.setVisibility(View.INVISIBLE);
-        skipButton.setVisibility(View.GONE);
+        try {
+            if (backButton != null) {
+                backButton.setVisibility(View.INVISIBLE);
+            }
+            if (skipButton != null) {
+                skipButton.setVisibility(View.GONE);
+            }
+        } catch (Exception ignored) {
+        }
     }
 
     /**
